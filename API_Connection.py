@@ -14,7 +14,7 @@ class API():
         self.API_NAME = "calendar"
         self.API_VERSION = "v3"
         self.SCOPES = ["https://www.googleapis.com/auth/calendar"]
-
+        self.service = None
 
 
     def Make_Service(self):
@@ -22,17 +22,7 @@ class API():
         self.service = Create_Service(self.CLIENT_SECRET_FILE, self.API_NAME, self.API_VERSION, self.SCOPES)
 
 
-    def Make_Calendar(self):
-
-        self.request_body = {
-            "summary" : "Siki's First"
-        }
-
-        self.resp = self.service.calendars().insert(body=self.request_body).execute()
-        print(self.resp)
 
 
-if __name__ == "__main__":
 
-    api = API()
-    api.Make_Service()
+
